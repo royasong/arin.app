@@ -6,8 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/h_no">
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btn_wakeup"
@@ -29,6 +28,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="엄마 시간 좀 더 줘 "/>
+    <Button
+        android:id="@+id/ivProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="배경 변경 "
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,5 +56,12 @@
             android:text="엄마에게 전화걸기"
             />
     </LinearLayout>
+    <ImageView
+        android:id="@+id/ImageView_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/h_no"
+    />
 
 </LinearLayout>
