@@ -17,10 +17,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.arin.ui.theme.ArinTheme
 import androidx.core.content.ContextCompat
 import android.content.pm.PackageManager
-import android.content.Intent
 import android.app.AlertDialog
 import android.util.Log
-
+import android.widget.Toast
+import android.telephony.SmsManager
+import android.content.Intent
+import android.net.Uri
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.ActivityResultLauncher
 
@@ -28,7 +30,6 @@ import androidx.activity.result.ActivityResultLauncher
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
 class MainActivity : ComponentActivity() {
     var TAG = "ARIN"
-
     lateinit var ivProfile: Button
     lateinit var bg_image: ImageView
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
@@ -48,6 +49,21 @@ class MainActivity : ComponentActivity() {
         }
 
         initImageViewProfile()
+    }
+    fun sendSms(message: String) {
+        val SmsManager = SmsManager.getDefault()
+        SmsManager.sendTextMessage("01095444074", null, message + "[by mom app]", null, null)
+        Toast.makeText(
+            this@MainActivity,
+            "엄마에게 " + message + "라고 보라고 보냈어요",
+            Toast.LENGTH_SHORT
+        ).show()
+
+    }
+    fun call(phonenum: String) {
+        var intent = Intent(Intent.ACTION_CALL)
+        intent.data = Uri.parse("tel:" + phonenum)
+        startActivity(intent)
     }
     private fun navigateGallery() {
         //val intent = Intent(this, SubActivity::class.java)
