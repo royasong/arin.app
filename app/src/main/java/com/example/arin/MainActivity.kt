@@ -16,6 +16,7 @@ import com.example.arin.ui.theme.ArinTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getActionBar()!!.setTitle("장아린 전용 앱")
         setContentView(R.layout.main_layout)
 /*
         enableEdgeToEdge()
