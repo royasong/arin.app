@@ -26,6 +26,9 @@ import android.net.Uri
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.ActivityResultLauncher
 
+import android.view.Menu
+import android.view.MenuItem
+//https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
 class MainActivity : ComponentActivity() {
@@ -114,9 +117,9 @@ class MainActivity : ComponentActivity() {
     private fun initImageViewProfile() {
         Log.d(TAG, "initImageViewProfile")
         ivProfile = findViewById(R.id.change_bgimage)
-        Log.d(TAG, "initImageViewProfile")
+        Log.d(TAG, "change_bgimage")
         ivProfile.setOnClickListener {
-            Log.d(TAG, "ivProfile.setOnClickListener execute")
+            Log.d(TAG, "change_bgimage.setOnClickListener execute")
             when {
                 // 갤러리 접근 권한이 있는 경우
                 ContextCompat.checkSelfPermission(
@@ -148,10 +151,23 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    public fun onClick1(v: View?) {
-        //setbackground
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_option, menu)
+        return true
     }
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item?.itemId) {
+            R.id.menu_item_setting -> {
+                Toast.makeText(this, "설정 선택 됨", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.menu_item_help -> {
+                Toast.makeText(this, "고객센터 선택 됨", Toast.LENGTH_SHORT).show()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
