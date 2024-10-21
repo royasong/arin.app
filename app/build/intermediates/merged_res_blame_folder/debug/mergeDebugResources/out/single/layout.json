@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "com.example.arin.app-mergeDebugResources-68:/layout/content_setting.xml",
+        "source": "com.example.arin.app-main-71:/layout/content_setting.xml"
+    },
+    {
+        "merged": "com.example.arin.app-mergeDebugResources-68:/layout/fragment_second.xml",
+        "source": "com.example.arin.app-main-71:/layout/fragment_second.xml"
+    },
+    {
+        "merged": "com.example.arin.app-mergeDebugResources-68:/layout/main_layout.xml",
+        "source": "com.example.arin.app-main-71:/layout/main_layout.xml"
+    },
+    {
+        "merged": "com.example.arin.app-mergeDebugResources-68:/layout/fragment_first.xml",
+        "source": "com.example.arin.app-main-71:/layout/fragment_first.xml"
+    },
+    {
+        "merged": "com.example.arin.app-mergeDebugResources-68:/layout/activity_setting.xml",
+        "source": "com.example.arin.app-main-71:/layout/activity_setting.xml"
+    }
+]

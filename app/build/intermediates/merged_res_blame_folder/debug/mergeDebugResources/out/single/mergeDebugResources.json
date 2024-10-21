@@ -1,0 +1,126 @@
+[
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/layout_main_layout.xml.flat",
+        "source": "com.example.arin.app-main-71:/layout/main_layout.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/layout_activity_setting.xml.flat",
+        "source": "com.example.arin.app-main-71:/layout/activity_setting.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/layout_fragment_first.xml.flat",
+        "source": "com.example.arin.app-main-71:/layout/fragment_first.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/layout_fragment_second.xml.flat",
+        "source": "com.example.arin.app-main-71:/layout/fragment_second.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.arin.app-main-71:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.arin.app-main-71:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/xml_backup_rules.xml.flat",
+        "source": "com.example.arin.app-main-71:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/menu_menu_context.xml.flat",
+        "source": "com.example.arin.app-main-71:/menu/menu_context.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/layout_content_setting.xml.flat",
+        "source": "com.example.arin.app-main-71:/layout/content_setting.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/navigation_nav_graph.xml.flat",
+        "source": "com.example.arin.app-main-71:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/menu_menu_popup.xml.flat",
+        "source": "com.example.arin.app-main-71:/menu/menu_popup.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/menu_menu_option.xml.flat",
+        "source": "com.example.arin.app-main-71:/menu/menu_option.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/drawable_h_no.png.flat",
+        "source": "com.example.arin.app-main-71:/drawable/h_no.png"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.arin.app-main-71:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.arin.app-debug-69:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.arin.app-main-71:/mipmap-mdpi/ic_launcher_round.webp"
+    }
+]

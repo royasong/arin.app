@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_wakeup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="엄마 나 일어 났어 " />
+    <Button
+        android:id="@+id/btn_gohome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="엄마 나 집에 가는길 "/>
+    <Button
+        android:id="@+id/btn_whereareyou"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="엄마 어디야 " />
+    <Button
+        android:id="@+id/btn_moretime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="엄마 시간 좀 더 줘 "/>
+    <Button
+        android:id="@+id/change_bgimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="배경 변경 "
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#008000"
+        >
+        <Button
+            android:id="@+id/btn_call2dad"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="아빠에게 전화걸기"
+            />
+        <Button
+            android:id="@+id/btn_call2mom"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="엄마에게 전화걸기"
+            />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/h_no"
+    />
+
+</LinearLayout>
