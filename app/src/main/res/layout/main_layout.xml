@@ -6,9 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/h_no">
+
     <Button
-        android:id="@+id/btn_gohome"
+        android:id="@+id/btn_wakeup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="엄마 나 일어 났어 " />
@@ -18,12 +20,12 @@
         android:layout_height="wrap_content"
         android:text="엄마 나 집에 가는길 "/>
     <Button
-        android:id="@+id/btn_gohome"
+        android:id="@+id/btn_whereareyou"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="엄마 어디야 " />
     <Button
-        android:id="@+id/btn_gohome"
+        android:id="@+id/btn_moretime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="엄마 시간 좀 더 줘 "/>
