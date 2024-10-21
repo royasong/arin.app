@@ -37,18 +37,46 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         getActionBar()!!.setTitle("장아린 전용 앱")
         setContentView(R.layout.main_layout)
-        bg_image = findViewById(R.id.ImageView_bg)
+        bg_image = findViewById(R.id.bg)
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 val intent = checkNotNull(result.data)
                 val imageUri = intent.data
                 Log.d(TAG, "user select " + imageUri)//
-                bg_image = findViewById(R.id.ImageView_bg)
+                bg_image = findViewById(R.id.bg)
                 bg_image.setImageURI(imageUri)
             }
         }
-
         initImageViewProfile()
+        add_btn_action()
+    }
+    fun add_btn_action() {
+        //SMS
+        var wakeup = findViewById<Button>(R.id.btn_wakeup)
+        wakeup!!.setOnClickListener(View.OnClickListener {
+            sendSms(wakeup.getText().toString());
+        })
+        var gohome = findViewById<Button>(R.id.btn_gohome)
+        gohome!!.setOnClickListener(View.OnClickListener {
+            sendSms(gohome.getText().toString());
+        })
+        var whereareyou = findViewById<Button>(R.id.btn_whereareyou)
+        whereareyou!!.setOnClickListener(View.OnClickListener {
+            sendSms(whereareyou.getText().toString());
+        })
+        var moretime = findViewById<Button>(R.id.btn_moretime)
+        moretime!!.setOnClickListener(View.OnClickListener {
+            sendSms(moretime.getText().toString());
+        })
+        //CALL
+        var callmom = findViewById<Button>(R.id.btn_call2mom)
+        callmom!!.setOnClickListener(View.OnClickListener {
+            call("01095444074")
+        })
+        var calldad = findViewById<Button>(R.id.btn_call2dad)
+        calldad!!.setOnClickListener(View.OnClickListener {
+            call("01093597899")
+        })
     }
     fun sendSms(message: String) {
         val SmsManager = SmsManager.getDefault()
@@ -58,7 +86,6 @@ class MainActivity : ComponentActivity() {
             "엄마에게 " + message + "라고 보라고 보냈어요",
             Toast.LENGTH_SHORT
         ).show()
-
     }
     fun call(phonenum: String) {
         var intent = Intent(Intent.ACTION_CALL)
@@ -86,7 +113,7 @@ class MainActivity : ComponentActivity() {
     }
     private fun initImageViewProfile() {
         Log.d(TAG, "initImageViewProfile")
-        ivProfile = findViewById(R.id.ivProfile)
+        ivProfile = findViewById(R.id.change_bgimage)
         Log.d(TAG, "initImageViewProfile")
         ivProfile.setOnClickListener {
             Log.d(TAG, "ivProfile.setOnClickListener execute")

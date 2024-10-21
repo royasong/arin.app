@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:text="엄마 시간 좀 더 줘 "/>
     <Button
-        android:id="@+id/ivProfile"
+        android:id="@+id/change_bgimage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="배경 변경 "
@@ -57,7 +57,7 @@
             />
     </LinearLayout>
     <ImageView
-        android:id="@+id/ImageView_bg"
+        android:id="@+id/bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
