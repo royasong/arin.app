@@ -39,6 +39,7 @@ class MainActivity : ComponentActivity() {
     lateinit var bg_image: ImageView
     lateinit var context_: Context
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //getActionBar()!!.setTitle("장아린 전용 앱") crash
@@ -50,8 +51,11 @@ class MainActivity : ComponentActivity() {
                 val intent = checkNotNull(result.data)
                 val imageUri = intent.data
                 Log.d(TAG, "user select " + imageUri)//
+                Log.d(TAG, "path:" + imageUri!!.getPath().toString())
+
                 bg_image = findViewById(R.id.bg)
                 bg_image.setImageURI(imageUri)
+
             }
         }
         initImageViewProfile()
