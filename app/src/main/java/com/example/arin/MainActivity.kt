@@ -1,33 +1,35 @@
 package com.example.arin
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.telephony.SmsManager
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import android.widget.Button
-import android.view.View
-import android.widget.ImageView
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.arin.ui.theme.ArinTheme
 import androidx.core.content.ContextCompat
-import android.content.pm.PackageManager
-import android.app.AlertDialog
-import android.util.Log
-import android.widget.Toast
-import android.telephony.SmsManager
-import android.content.Intent
-import android.net.Uri
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.result.ActivityResultLauncher
+import com.example.arin.ui.theme.ArinTheme
+import java.io.File
+import java.io.IOException
+import android.graphics.BitmapFactory;
+import android.os.Build
+import androidx.core.content.FileProvider
 
-import android.view.Menu
-import android.view.MenuItem
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
@@ -35,12 +37,14 @@ class MainActivity : ComponentActivity() {
     var TAG = "ARIN"
     lateinit var ivProfile: Button
     lateinit var bg_image: ImageView
+    lateinit var context_: Context
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //getActionBar()!!.setTitle("장아린 전용 앱") crash
         setContentView(R.layout.main_layout)
         bg_image = findViewById(R.id.bg)
+        context_ = getApplicationContext();
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 val intent = checkNotNull(result.data)
@@ -52,6 +56,31 @@ class MainActivity : ComponentActivity() {
         }
         initImageViewProfile()
         add_btn_action()
+    }
+    fun getContext(): Context {
+        return context_
+    }
+    private fun uriToBitmap(uri: Uri) {
+        val directory = File(context_.cacheDir, "images")
+        directory.mkdirs() // 임시 파일이 위치할 폴더를 생성한다.
+
+        val file = File.createTempFile(
+            "selected_image",
+            ".jpg",
+            directory,
+        ) // 해당 폴더에 임시 파일을 만든다.
+
+        val authority = context_.packageName + ".fileprovider" //
+
+        val outputFileUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            FileProvider.getUriForFile(
+                context_,
+                authority,
+                file
+            )
+        } else {
+            Uri.fromFile(file)
+        }
     }
     fun add_btn_action() {
         //SMS
