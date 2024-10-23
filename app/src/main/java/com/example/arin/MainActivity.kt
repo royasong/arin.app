@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getActionBar()!!.setTitle("장아린 전용 앱")
+        //getActionBar()!!.setTitle("장아린 전용 앱") crash
         setContentView(R.layout.main_layout)
         bg_image = findViewById(R.id.bg)
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
