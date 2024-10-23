@@ -25,11 +25,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
 import com.example.arin.ui.theme.ArinTheme
 import java.io.File
-import java.io.IOException
+
 import android.graphics.BitmapFactory;
 import android.os.Build
 import androidx.core.content.FileProvider
+import android.graphics.ImageDecoder
+import android.provider.MediaStore
 
+import java.io.IOException
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
@@ -49,13 +52,38 @@ class MainActivity : ComponentActivity() {
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 val intent = checkNotNull(result.data)
+                var currentImageUri  = intent.data
+/*
+                val intent = checkNotNull(result.data)
                 val imageUri = intent.data
                 Log.d(TAG, "user select " + imageUri)//
                 Log.d(TAG, "path:" + imageUri!!.getPath().toString())
 
                 bg_image = findViewById(R.id.bg)
                 bg_image.setImageURI(imageUri)
+*/
+                try{
+                    currentImageUri?.let {
+                        if(Build.VERSION.SDK_INT < 28) {
+                            Log.e(TAG, "MediaStore.Images.Media.getBitmap")//
+                            val bitmap = MediaStore.Images.Media.getBitmap(
+                                this.contentResolver,
+                                currentImageUri
+                            )
+                            bg_image?.setImageBitmap(bitmap)
+                        } else {
 
+                            Log.e(TAG, "ImageDecoder.createSource")//
+                            val source = ImageDecoder.createSource(this.contentResolver, currentImageUri)
+                            val bitmap = ImageDecoder.decodeBitmap(source)
+                            bg_image?.setImageBitmap(bitmap)
+                        }
+                    }
+                }catch(e : Exception)
+                {
+                    Log.e(TAG, "ERROR " + e)//
+                    e.printStackTrace()
+                }
             }
         }
         initImageViewProfile()
