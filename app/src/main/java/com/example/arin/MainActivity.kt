@@ -31,6 +31,10 @@ import android.os.Build
 import androidx.core.content.FileProvider
 import android.graphics.ImageDecoder
 import android.provider.MediaStore
+import android.content.ContentValues
+import java.io.FileOutputStream;
+
+import java.io.FileNotFoundException;
 
 import java.io.IOException
 //https://todaycode.tistory.com/118
@@ -40,6 +44,7 @@ class MainActivity : ComponentActivity() {
     var TAG = "ARIN"
     lateinit var ivProfile: Button
     lateinit var bg_image: ImageView
+    lateinit var bg_string_: String
     lateinit var context_: Context
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
@@ -79,8 +84,7 @@ class MainActivity : ComponentActivity() {
                             bg_image?.setImageBitmap(bitmap)
                         }
                     }
-                }catch(e : Exception)
-                {
+                } catch(e : Exception) {
                     Log.e(TAG, "ERROR " + e)//
                     e.printStackTrace()
                 }
@@ -92,26 +96,47 @@ class MainActivity : ComponentActivity() {
     fun getContext(): Context {
         return context_
     }
-    private fun uriToBitmap(uri: Uri) {
-        val directory = File(context_.cacheDir, "images")
-        directory.mkdirs() // 임시 파일이 위치할 폴더를 생성한다.
+    private fun saveBitmapImage(bitmap: Bitmap) {
+        val fileName =  "arin_background.png"
 
-        val file = File.createTempFile(
-            "selected_image",
-            ".jpg",
-            directory,
-        ) // 해당 폴더에 임시 파일을 만든다.
+        /*
+        * ContentValues() 객체 생성.
+        * ContentValues는 ContentResolver가 처리할 수 있는 값을 저장해둘 목적으로 사용된다.
+        * */
+        val contentValues = ContentValues()
+        contentValues.apply {
+            put(MediaStore.Images.Media.RELATIVE_PATH, "DCIM/ImageSave") // 경로 설정
+            put(MediaStore.Images.Media.DISPLAY_NAME, fileName) // 파일이름을 put해준다.
+            put(MediaStore.Images.Media.MIME_TYPE, "image/png")
+            put(MediaStore.Images.Media.IS_PENDING, 1) // 현재 is_pending 상태임을 만들어준다.
+            // 다른 곳에서 이 데이터를 요구하면 무시하라는 의미로, 해당 저장소를 독점할 수 있다.
+        }
 
-        val authority = context_.packageName + ".fileprovider" //
+        // 이미지를 저장할 uri를 미리 설정해놓는다.
+        val uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+        bg_string_ = uri.toString()
+        try {
+            if(uri != null) {
+                val image = contentResolver.openFileDescriptor(uri, "w", null)
+                // write 모드로 file을 open한다.
 
-        val outputFileUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            FileProvider.getUriForFile(
-                context_,
-                authority,
-                file
-            )
-        } else {
-            Uri.fromFile(file)
+                if(image != null) {
+                    val fos = FileOutputStream(image.fileDescriptor)
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
+                    //비트맵을 FileOutputStream를 통해 compress한다.
+                    fos.close()
+
+                    contentValues.clear()
+                    contentValues.put(MediaStore.Images.Media.IS_PENDING, 0) // 저장소 독점을 해제한다.
+                    contentResolver.update(uri, contentValues, null, null)
+                }
+            }
+        } catch(e: FileNotFoundException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
     fun add_btn_action() {
