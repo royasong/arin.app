@@ -5,8 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Bitmap.CompressFormat
+import android.graphics.ImageDecoder
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.telephony.SmsManager
 import android.util.Log
 import android.view.Menu
@@ -25,18 +29,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
 import com.example.arin.ui.theme.ArinTheme
 import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStream
 
-import android.graphics.BitmapFactory;
-import android.os.Build
-import androidx.core.content.FileProvider
-import android.graphics.ImageDecoder
-import android.provider.MediaStore
-import android.content.ContentValues
-import java.io.FileOutputStream;
 
-import java.io.FileNotFoundException;
-
-import java.io.IOException
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
@@ -96,6 +92,7 @@ class MainActivity : ComponentActivity() {
     fun getContext(): Context {
         return context_
     }
+    /*
     private fun saveBitmapImage(bitmap: Bitmap) {
         val fileName =  "arin_background.png"
 
@@ -136,6 +133,22 @@ class MainActivity : ComponentActivity() {
         } catch (e: IOException) {
             e.printStackTrace()
         } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+     */
+    private fun saveBitmapAsFile(bitmap: Bitmap, filepath: String) {
+        val file = File(filepath)
+        var os: OutputStream? = null
+
+        try {
+            file.createNewFile()
+            os = FileOutputStream(file)
+
+            bitmap.compress(CompressFormat.PNG, 100, os)
+
+            os.close()
+        } catch (e: java.lang.Exception) {
             e.printStackTrace()
         }
     }
