@@ -31,7 +31,7 @@ import com.example.arin.ui.theme.ArinTheme
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
-
+import android.graphics.BitmapFactory
 
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
@@ -50,6 +50,14 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.main_layout)
         bg_image = findViewById(R.id.bg)
         context_ = getApplicationContext();
+        val imgFile = File("/data/user/0/com.example.arin/files/arin_bg.png")
+        if (imgFile.exists()) {
+            // on below line we are creating an image bitmap variable
+            // and adding a bitmap to it from image file.
+            val imgBitmap = BitmapFactory.decodeFile(imgFile.absolutePath)
+            // on below line we are setting bitmap to our image view.
+            bg_image.setImageBitmap(imgBitmap)
+        }
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 val intent = checkNotNull(result.data)
