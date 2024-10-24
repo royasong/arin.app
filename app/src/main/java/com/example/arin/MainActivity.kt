@@ -38,9 +38,8 @@ import android.graphics.BitmapFactory
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
 class MainActivity : ComponentActivity() {
     var TAG = "ARIN"
-    lateinit var ivProfile: Button
-    lateinit var bg_image: ImageView
-    lateinit var bg_string_: String
+    lateinit var btn_change_bgimage_: Button
+    lateinit var view_bg_image_: ImageView
     lateinit var context_: Context
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
@@ -48,16 +47,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //getActionBar()!!.setTitle("장아린 전용 앱") crash
         setContentView(R.layout.main_layout)
-        bg_image = findViewById(R.id.bg)
         context_ = getApplicationContext();
-        val imgFile = File("/data/user/0/com.example.arin/files/arin_bg.png")
-        if (imgFile.exists()) {
-            // on below line we are creating an image bitmap variable
-            // and adding a bitmap to it from image file.
-            val imgBitmap = BitmapFactory.decodeFile(imgFile.absolutePath)
-            // on below line we are setting bitmap to our image view.
-            bg_image.setImageBitmap(imgBitmap)
-        }
+        view_bg_image_ = findViewById(R.id.bg)
+        setImageViewImage(getContext().getFilesDir().getPath() + "/arin_bg.png")
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 val intent = checkNotNull(result.data)
@@ -70,11 +62,11 @@ class MainActivity : ComponentActivity() {
                                 this.contentResolver,
                                 currentImageUri
                             )
-                            bg_image?.setImageBitmap(bitmap)
+                            view_bg_image_?.setImageBitmap(bitmap)
                         } else {
                             val source = ImageDecoder.createSource(this.contentResolver, currentImageUri)
                             val bitmap = ImageDecoder.decodeBitmap(source)
-                            bg_image?.setImageBitmap(bitmap)
+                            view_bg_image_?.setImageBitmap(bitmap)
                             val back_dir_: String = getContext().getFilesDir().getPath()
                             Log.e(TAG, "save dir : " + back_dir_)//
                             saveBitmapAsFile(bitmap,back_dir_+"/arin_bg.png")
@@ -88,6 +80,13 @@ class MainActivity : ComponentActivity() {
         }
         initImageViewProfile()
         add_btn_action()
+    }
+    fun setImageViewImage(filepath : String) {
+        val imgFile = File(filepath)
+        if (imgFile.exists()) {
+            val imgBitmap = BitmapFactory.decodeFile(imgFile.absolutePath)
+            view_bg_image_.setImageBitmap(imgBitmap)
+        }
     }
     fun getContext(): Context {
         return context_
@@ -169,9 +168,9 @@ class MainActivity : ComponentActivity() {
     }
     private fun initImageViewProfile() {
         Log.d(TAG, "initImageViewProfile")
-        ivProfile = findViewById(R.id.change_bgimage)
+        btn_change_bgimage_ = findViewById(R.id.change_bgimage)
         Log.d(TAG, "change_bgimage")
-        ivProfile.setOnClickListener {
+        btn_change_bgimage_.setOnClickListener {
             Log.d(TAG, "change_bgimage.setOnClickListener execute")
             when {
                 // 갤러리 접근 권한이 있는 경우
