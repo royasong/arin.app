@@ -93,8 +93,7 @@ class MainActivity : ComponentActivity() {
                 // 색상 변경 시 처리 내용
                 override fun onOk(dialog: AmbilWarnaDialog?, color: Int) {
                 }
-            }).show()
-
+        }).show()
     }
     fun add_btn_color() {
 
