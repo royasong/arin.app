@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.arin.app-mergeDebugResources-67:/values-tr/values-tr.xml",
+            "outputFile": "com.example.arin.app-mergeDebugResources-68:/values-tr/values-tr.xml",
             "map": [
                 {
                     "source": "/home/obigo/.gradle/caches/transforms-4/bfc0ab31d175d2bff4ca7ae50e2f394f/transformed/navigation-ui-2.8.2/res/values-tr/values-tr.xml",

@@ -34,7 +34,12 @@
         android:layout_height="wrap_content"
         android:text="배경 변경 "
         />
-
+    <Button
+        android:id="@+id/change_bgcolor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="배경 color 변경 "
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -42,12 +42,15 @@ public final class MainLayoutBinding implements ViewBinding {
   public final Button btnWhereareyou;
 
   @NonNull
+  public final Button changeBgcolor;
+
+  @NonNull
   public final Button changeBgimage;
 
   private MainLayoutBinding(@NonNull LinearLayout rootView, @NonNull ImageView bg,
       @NonNull Button btnCall2dad, @NonNull Button btnCall2mom, @NonNull Button btnGohome,
       @NonNull Button btnMoretime, @NonNull Button btnWakeup, @NonNull Button btnWhereareyou,
-      @NonNull Button changeBgimage) {
+      @NonNull Button changeBgcolor, @NonNull Button changeBgimage) {
     this.rootView = rootView;
     this.bg = bg;
     this.btnCall2dad = btnCall2dad;
@@ -56,6 +59,7 @@ public final class MainLayoutBinding implements ViewBinding {
     this.btnMoretime = btnMoretime;
     this.btnWakeup = btnWakeup;
     this.btnWhereareyou = btnWhereareyou;
+    this.changeBgcolor = changeBgcolor;
     this.changeBgimage = changeBgimage;
   }
 
@@ -128,6 +132,12 @@ public final class MainLayoutBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.change_bgcolor;
+      Button changeBgcolor = ViewBindings.findChildViewById(rootView, id);
+      if (changeBgcolor == null) {
+        break missingId;
+      }
+
       id = R.id.change_bgimage;
       Button changeBgimage = ViewBindings.findChildViewById(rootView, id);
       if (changeBgimage == null) {
@@ -135,7 +145,7 @@ public final class MainLayoutBinding implements ViewBinding {
       }
 
       return new MainLayoutBinding((LinearLayout) rootView, bg, btnCall2dad, btnCall2mom, btnGohome,
-          btnMoretime, btnWakeup, btnWhereareyou, changeBgimage);
+          btnMoretime, btnWakeup, btnWhereareyou, changeBgcolor, changeBgimage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

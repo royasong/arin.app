@@ -24,9 +24,11 @@ id btn_wakeup
 id btn_whereareyou
 id button_first
 id button_second
+id change_bgcolor
 id change_bgimage
 id fab
 id menu_item_help
+id menu_item_login
 id menu_item_setting
 id nav_graph
 id nav_host_fragment_content_setting

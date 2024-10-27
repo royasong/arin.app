@@ -32,7 +32,8 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 import android.graphics.BitmapFactory
-
+import yuku.ambilwarna.AmbilWarnaDialog
+import android.graphics.Color
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
@@ -45,8 +46,9 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //getActionBar()!!.setTitle("장아린 전용 앱") crash
         setContentView(R.layout.main_layout)
+
+        ///getActionBar()!!.setTitle("장아린 전용 앱")// crash
         context_ = getApplicationContext();
         view_bg_image_ = findViewById(R.id.bg)
         setImageViewImage(getContext().getFilesDir().getPath() + "/arin_bg.png")
@@ -54,7 +56,6 @@ class MainActivity : ComponentActivity() {
             if (result.resultCode == RESULT_OK) {
                 val intent = checkNotNull(result.data)
                 var currentImageUri  = intent.data
-
                 try {
                     currentImageUri?.let {
                         if(Build.VERSION.SDK_INT < 28) {
@@ -80,6 +81,31 @@ class MainActivity : ComponentActivity() {
         }
         initImageViewProfile()
         add_btn_action()
+        add_btn_color()
+    }
+    fun openBgColorSelectView() {
+        val color = Color.parseColor("#00B700")
+        AmbilWarnaDialog(this, color,
+            object : AmbilWarnaDialog.OnAmbilWarnaListener {
+                override fun onCancel(dialog: AmbilWarnaDialog?) {
+                }
+
+                // 색상 변경 시 처리 내용
+                override fun onOk(dialog: AmbilWarnaDialog?, color: Int) {
+                }
+            }).show()
+
+    }
+    fun add_btn_color() {
+
+        var bgcolor = findViewById<Button>(R.id.change_bgcolor)
+        bgcolor!!.setOnClickListener(View.OnClickListener {
+            openBgColorSelectView();
+        })
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_option, menu)
+        return true
     }
     fun setImageViewImage(filepath : String) {
         val imgFile = File(filepath)
@@ -201,11 +227,6 @@ class MainActivity : ComponentActivity() {
             }
 
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_option, menu)
-        return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item?.itemId) {

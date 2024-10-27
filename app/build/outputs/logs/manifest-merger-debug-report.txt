@@ -86,6 +86,7 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /home/obigo/.gradle/cache
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/obigo/.gradle/caches/transforms-4/68a7872a5dbea526df891a8f30ee901e/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /home/obigo/.gradle/caches/transforms-4/5786e428c843a13e4696f069422de34c/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/obigo/.gradle/caches/transforms-4/13a3d4701c19647d1679557516436e0c/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.yukuku:ambilwarna:2.0.1] /home/obigo/.gradle/caches/transforms-4/a0106fa915ad530b0cefe7ad916e827a/transformed/ambilwarna-2.0.1/AndroidManifest.xml:2:1-12:12
 	package
 		INJECTED from /home/obigo/server/arin/arin.app/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -355,6 +356,8 @@ MERGED from [androidx.print:print:1.0.0] /home/obigo/.gradle/caches/transforms-4
 MERGED from [androidx.print:print:1.0.0] /home/obigo/.gradle/caches/transforms-4/5786e428c843a13e4696f069422de34c/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/obigo/.gradle/caches/transforms-4/13a3d4701c19647d1679557516436e0c/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /home/obigo/.gradle/caches/transforms-4/13a3d4701c19647d1679557516436e0c/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.github.yukuku:ambilwarna:2.0.1] /home/obigo/.gradle/caches/transforms-4/a0106fa915ad530b0cefe7ad916e827a/transformed/ambilwarna-2.0.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.yukuku:ambilwarna:2.0.1] /home/obigo/.gradle/caches/transforms-4/a0106fa915ad530b0cefe7ad916e827a/transformed/ambilwarna-2.0.1/AndroidManifest.xml:8:5-10:41
 	android:targetSdkVersion
 		INJECTED from /home/obigo/server/arin/arin.app/app/src/main/AndroidManifest.xml
 	android:minSdkVersion

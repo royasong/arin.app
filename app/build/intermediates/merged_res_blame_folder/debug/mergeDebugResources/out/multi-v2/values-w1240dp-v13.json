@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.arin.app-mergeDebugResources-67:/values-w1240dp-v13/values-w1240dp-v13.xml",
+            "outputFile": "com.example.arin.app-mergeDebugResources-68:/values-w1240dp-v13/values-w1240dp-v13.xml",
             "map": [
                 {
                     "source": "/home/obigo/server/arin/arin.app/app/src/main/res/values-w1240dp/dimens.xml",
