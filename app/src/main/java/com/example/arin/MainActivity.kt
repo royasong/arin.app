@@ -6,6 +6,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
@@ -27,17 +29,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColorInt
 import com.example.arin.ui.theme.ArinTheme
+import yuku.ambilwarna.AmbilWarnaDialog
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
-import android.graphics.BitmapFactory
-import yuku.ambilwarna.AmbilWarnaDialog
-import android.graphics.Color
+import java.io.FileNotFoundException;
 
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
+///data/user/0/com.example.arin/files
 class MainActivity : ComponentActivity() {
     var TAG = "ARIN"
     lateinit var btn_change_bgimage_: Button
@@ -80,9 +83,39 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
         initImageViewProfile()
         add_btn_action()
         add_btn_color()
+        setButtonColor()
+    }
+    fun setButtonColor() {
+        var color = getBtBackgroundColor().toColorInt()
+        //Toast.makeText(applicationContext, color, Toast.LENGTH_SHORT).show()
+        btn_change_bgimage_.setBackgroundColor(Color.RED)
+    }
+    // Stream 사용해서 파일 저장하기
+    fun storeFileUsingStream(color : String?) {
+        val filename = "btn_bg_color.txt"
+        // API 24 이상에서, MODE_PRIVATE 사용 안하면, SecurityException 발생
+        getContext()!!.openFileOutput(filename, Context.MODE_PRIVATE).use {
+            it.write(color!!.toByteArray())
+        }
+    }
+    fun getBtBackgroundColor() : String {
+        try {
+            val inFs = getContext()!!.openFileInput("btn_bg_color.txt")
+
+            val txt = ByteArray(30) //byte[]형의 변수 txt를 선언
+            inFs.read(txt) //읽어온 데이터를 저장
+            val str = String(txt) //txt를 문자열로 변환
+            Toast.makeText(applicationContext, str, Toast.LENGTH_SHORT).show()
+            inFs.close()
+            return str;
+        } catch (e : FileNotFoundException) {
+            e.printStackTrace();
+        }
+        return ""
     }
     fun openBgColorSelectView() {
         val color = Color.parseColor("#00B700")
@@ -95,11 +128,13 @@ class MainActivity : ComponentActivity() {
                 override fun onOk(dialog: AmbilWarnaDialog?, color: Int) {
                     Log.d(TAG, "button background changed " + color)//
                     btn_change_bgimage_.setBackgroundColor(color)
+                    storeFileUsingStream(color.toString())
+                    //btn_change_bgimage_.setTextColor(color)
+
                 }
         }).show()
     }
     fun add_btn_color() {
-
         var bgcolor = findViewById<Button>(R.id.change_bgcolor)
         bgcolor!!.setOnClickListener(View.OnClickListener {
             openBgColorSelectView();
