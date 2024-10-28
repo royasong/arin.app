@@ -197,7 +197,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/arin/MainActivity.kt</url>
-          <line>120</line>
+          <line>121</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

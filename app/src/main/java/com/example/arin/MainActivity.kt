@@ -90,7 +90,7 @@ class MainActivity : ComponentActivity() {
         setButtonColor()
     }
     fun setButtonColor() {
-        var color = getBtBackgroundColor().toColorInt()
+        var color = getBtBackgroundColor().toInt()
         //Toast.makeText(applicationContext, color, Toast.LENGTH_SHORT).show()
         btn_change_bgimage_.setBackgroundColor(Color.RED)
     }
@@ -106,10 +106,11 @@ class MainActivity : ComponentActivity() {
         try {
             val inFs = getContext()!!.openFileInput("btn_bg_color.txt")
 
-            val txt = ByteArray(30) //byte[]형의 변수 txt를 선언
+            val txt = ByteArray(inFs.available()) //byte[]형의 변수 txt를 선언
             inFs.read(txt) //읽어온 데이터를 저장
             val str = String(txt) //txt를 문자열로 변환
             Toast.makeText(applicationContext, str, Toast.LENGTH_SHORT).show()
+            Log.d(TAG, "color value " + str)//
             inFs.close()
             return str;
         } catch (e : FileNotFoundException) {
