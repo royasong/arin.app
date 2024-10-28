@@ -34,6 +34,7 @@ import java.io.OutputStream
 import android.graphics.BitmapFactory
 import yuku.ambilwarna.AmbilWarnaDialog
 import android.graphics.Color
+
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
@@ -48,7 +49,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout)
 
-        ///getActionBar()!!.setTitle("장아린 전용 앱")// crash
+        //getActionBar()!!.setTitle("장아린 전용 앱")// crash
         context_ = getApplicationContext();
         view_bg_image_ = findViewById(R.id.bg)
         setImageViewImage(getContext().getFilesDir().getPath() + "/arin_bg.png")
@@ -92,6 +93,8 @@ class MainActivity : ComponentActivity() {
 
                 // 색상 변경 시 처리 내용
                 override fun onOk(dialog: AmbilWarnaDialog?, color: Int) {
+                    Log.d(TAG, "button background changed " + color)//
+                    btn_change_bgimage_.setBackgroundColor(color)
                 }
         }).show()
     }

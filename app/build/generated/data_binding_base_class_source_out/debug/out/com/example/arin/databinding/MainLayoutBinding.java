@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.arin.R;
@@ -30,27 +31,28 @@ public final class MainLayoutBinding implements ViewBinding {
   public final Button btnCall2mom;
 
   @NonNull
-  public final Button btnGohome;
+  public final AppCompatButton btnGohome;
 
   @NonNull
-  public final Button btnMoretime;
+  public final AppCompatButton btnMoretime;
 
   @NonNull
-  public final Button btnWakeup;
+  public final AppCompatButton btnWakeup;
 
   @NonNull
-  public final Button btnWhereareyou;
+  public final AppCompatButton btnWhereareyou;
 
   @NonNull
-  public final Button changeBgcolor;
+  public final AppCompatButton changeBgcolor;
 
   @NonNull
-  public final Button changeBgimage;
+  public final AppCompatButton changeBgimage;
 
   private MainLayoutBinding(@NonNull LinearLayout rootView, @NonNull ImageView bg,
-      @NonNull Button btnCall2dad, @NonNull Button btnCall2mom, @NonNull Button btnGohome,
-      @NonNull Button btnMoretime, @NonNull Button btnWakeup, @NonNull Button btnWhereareyou,
-      @NonNull Button changeBgcolor, @NonNull Button changeBgimage) {
+      @NonNull Button btnCall2dad, @NonNull Button btnCall2mom, @NonNull AppCompatButton btnGohome,
+      @NonNull AppCompatButton btnMoretime, @NonNull AppCompatButton btnWakeup,
+      @NonNull AppCompatButton btnWhereareyou, @NonNull AppCompatButton changeBgcolor,
+      @NonNull AppCompatButton changeBgimage) {
     this.rootView = rootView;
     this.bg = bg;
     this.btnCall2dad = btnCall2dad;
@@ -109,37 +111,37 @@ public final class MainLayoutBinding implements ViewBinding {
       }
 
       id = R.id.btn_gohome;
-      Button btnGohome = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btnGohome = ViewBindings.findChildViewById(rootView, id);
       if (btnGohome == null) {
         break missingId;
       }
 
       id = R.id.btn_moretime;
-      Button btnMoretime = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btnMoretime = ViewBindings.findChildViewById(rootView, id);
       if (btnMoretime == null) {
         break missingId;
       }
 
       id = R.id.btn_wakeup;
-      Button btnWakeup = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btnWakeup = ViewBindings.findChildViewById(rootView, id);
       if (btnWakeup == null) {
         break missingId;
       }
 
       id = R.id.btn_whereareyou;
-      Button btnWhereareyou = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btnWhereareyou = ViewBindings.findChildViewById(rootView, id);
       if (btnWhereareyou == null) {
         break missingId;
       }
 
       id = R.id.change_bgcolor;
-      Button changeBgcolor = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton changeBgcolor = ViewBindings.findChildViewById(rootView, id);
       if (changeBgcolor == null) {
         break missingId;
       }
 
       id = R.id.change_bgimage;
-      Button changeBgimage = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton changeBgimage = ViewBindings.findChildViewById(rootView, id);
       if (changeBgimage == null) {
         break missingId;
       }

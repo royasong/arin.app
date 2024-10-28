@@ -49,9 +49,5 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <style name="Base.Theme.Arin" parent="Theme.Material3.DayNight.NoActionBar">
-        
-        
-    </style>
-    <style name="Theme.Arin" parent="android:Theme.Material.Light.DarkActionBar"/>
+    <style name="Theme.Arin" parent="android:Theme.Material.Light"/>
 </resources>
