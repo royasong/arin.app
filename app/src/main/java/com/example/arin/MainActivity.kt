@@ -37,11 +37,17 @@ import java.io.FileOutputStream
 import java.io.OutputStream
 import java.io.FileNotFoundException;
 import android.widget.LinearLayout
+///
+//
+// data/user/0/com.example.arin/files
+//
+//
 
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
 //출처: https://jwsoft91.tistory.com/278 [혀가 길지 않은 개발자:티스토리]
-///data/user/0/com.example.arin/files
+
+//눈내리기 https://github.com/Myeongcheol-shin/snowfall-effect
 class MainActivity : ComponentActivity() {
     var TAG = "ARIN"
     lateinit var btn_change_bgimage_: Button
