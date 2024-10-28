@@ -8,12 +8,12 @@
         "source": "/home/obigo/.gradle/daemon/8.7/com.example.arin.app-main-72:/layout/activity_setting.xml"
     },
     {
-        "merged": "/home/obigo/.gradle/daemon/8.7/com.example.arin.app-debug-70:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "/home/obigo/.gradle/daemon/8.7/com.example.arin.app-main-72:/mipmap-xhdpi/ic_launcher.webp"
-    },
-    {
         "merged": "/home/obigo/.gradle/daemon/8.7/com.example.arin.app-debug-70:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
         "source": "/home/obigo/.gradle/daemon/8.7/com.example.arin.app-main-72:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/home/obigo/.gradle/daemon/8.7/com.example.arin.app-debug-70:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/obigo/.gradle/daemon/8.7/com.example.arin.app-main-72:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
         "merged": "/home/obigo/.gradle/daemon/8.7/com.example.arin.app-debug-70:/mipmap-anydpi-v26_ic_launcher.xml.flat",

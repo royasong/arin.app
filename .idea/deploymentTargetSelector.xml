@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="server.arin.app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-24T03:27:46.381989127Z">
+        <DropdownSelection timestamp="2024-10-28T07:39:00.838781657Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=ce091719248f540802" />
+              <DeviceId pluginId="Default" identifier="serial=emulator-5556;connection=4bf5acba" />
             </handle>
           </Target>
         </DropdownSelection>

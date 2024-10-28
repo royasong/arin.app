@@ -48,11 +48,14 @@ public final class MainLayoutBinding implements ViewBinding {
   @NonNull
   public final AppCompatButton changeBgimage;
 
+  @NonNull
+  public final LinearLayout mainLayout;
+
   private MainLayoutBinding(@NonNull LinearLayout rootView, @NonNull ImageView bg,
       @NonNull Button btnCall2dad, @NonNull Button btnCall2mom, @NonNull AppCompatButton btnGohome,
       @NonNull AppCompatButton btnMoretime, @NonNull AppCompatButton btnWakeup,
       @NonNull AppCompatButton btnWhereareyou, @NonNull AppCompatButton changeBgcolor,
-      @NonNull AppCompatButton changeBgimage) {
+      @NonNull AppCompatButton changeBgimage, @NonNull LinearLayout mainLayout) {
     this.rootView = rootView;
     this.bg = bg;
     this.btnCall2dad = btnCall2dad;
@@ -63,6 +66,7 @@ public final class MainLayoutBinding implements ViewBinding {
     this.btnWhereareyou = btnWhereareyou;
     this.changeBgcolor = changeBgcolor;
     this.changeBgimage = changeBgimage;
+    this.mainLayout = mainLayout;
   }
 
   @Override
@@ -146,8 +150,10 @@ public final class MainLayoutBinding implements ViewBinding {
         break missingId;
       }
 
+      LinearLayout mainLayout = (LinearLayout) rootView;
+
       return new MainLayoutBinding((LinearLayout) rootView, bg, btnCall2dad, btnCall2mom, btnGohome,
-          btnMoretime, btnWakeup, btnWhereareyou, changeBgcolor, changeBgimage);
+          btnMoretime, btnWakeup, btnWhereareyou, changeBgcolor, changeBgimage, mainLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

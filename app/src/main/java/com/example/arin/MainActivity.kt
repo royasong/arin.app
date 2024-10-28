@@ -36,6 +36,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 import java.io.FileNotFoundException;
+import android.widget.LinearLayout
 
 //https://todaycode.tistory.com/118
 //https://devgeek.tistory.com/12
@@ -51,6 +52,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout)
+        var main = findViewById(R.id.main_layout) as LinearLayout
+        main.setBackgroundColor(Color.RED);
 
         //getActionBar()!!.setTitle("장아린 전용 앱")// crash
         context_ = getApplicationContext();
