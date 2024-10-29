@@ -100,8 +100,10 @@ class MainActivity : ComponentActivity() {
     }
     fun setButtonColor() {
         var color = getBtBackgroundColor()
-        Toast.makeText(applicationContext, color, Toast.LENGTH_SHORT).show()
-        btn_change_bgimage_.setBackgroundColor(color.toInt())
+        if(!color.isNullOrBlank()) {
+            Toast.makeText(applicationContext, color, Toast.LENGTH_SHORT).show()
+            btn_change_bgimage_.setBackgroundColor(color.toInt())
+        }
     }
     // Stream 사용해서 파일 저장하기
     fun storeFileUsingStream(color : String?) {
